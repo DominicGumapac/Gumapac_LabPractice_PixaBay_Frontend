@@ -1,3 +1,15 @@
 The README
-Nothing of note to add other than this repository will be ran in netlify
-Since it was stated to run it in a third party hoster to not jeoprodize my API Key related to pixabay
+
+This website is a single site page that uses the Pixabay API to search images and videos from its databases.
+
+To run this project locally you must
+
+1. Clone the repo into your local folder
+
+2. Create config.js file with this code inside it
+
+const PIXABAY_API_KEY = "Your API key from pixabay"
+
+This is to ensure that the my personal API Key won't be leaked or accessible to the public
+
+Important: Even with config.js kept out of GitHub, once your site is deployed and your JavaScript calls the Pixabay API directly from the browser, anyone who opens developer tools or views the network request can see your API key. Keeping config.js out of your repository keeps the key out of your GitHub history, which is a real and worthwhile habit, but it does not hide the key from someone using your live site.
