@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lightbox — Pixabay Media Search</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="page">
+
+    <header class="masthead">
+      <div>
+        <h1>Pixabay Grabber-Inator</h1>
+        <p class="masthead-sub">Pull reference photos and clips straight from Pixabay's library.</p>
+      </div>
+    </header>
+
+    <main>
+      <section class="search-strip" aria-label="Search Pixabay">
+        <form id="search-form">
+          <div class="field-row">
+            <label for="search-input" class="visually-hidden">Search term</label>
+            <input
+              type="text"
+              id="search-input"
+              name="q"
+              placeholder="Search for something like a fish"
+              autocomplete="off"
+              required
+            >
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+
+          <fieldset class="type-toggle">
+            <legend class="visually-hidden">Media type</legend>
+            <label class="pill">
+              <input type="radio" name="media-type" value="photo" checked>
+              <span>Photos</span>
+            </label>
+            <label class="pill">
+              <input type="radio" name="media-type" value="video">
+              <span>Videos</span>
+            </label>
+          </fieldset>
+        </form>
+      </section>
+
+      <section class="challenges" aria-label="Quick pulls">
+        <h2>Quick pulls</h2>
+        <div class="challenge-row">
+          <button type="button" class="btn btn-frame challenge-btn" data-query="rocket launch" data-type="video">
+            Rocket Launch
+          </button>
+          <button type="button" class="btn btn-frame challenge-btn" data-query="basketball" data-type="video">
+            Basketball
+          </button>
+          <button type="button" class="btn btn-frame challenge-btn" data-query="forest" data-type="video">
+            Forest
+          </button>
+          <button type="button" class="btn btn-frame challenge-btn" data-query="road forest" data-type="photo">
+            Road Forest
+          </button>
+        </div>
+      </section>
+
+      <div id="status-area" aria-live="polite">
+        <div id="loading" class="loading hidden">
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+          <span class="loading-dot"></span>
+          <span class="loading-text">Fetching results…</span>
+        </div>
+        <div id="error-message" class="error-banner hidden" role="alert"></div>
+      </div>
+
+      <section aria-label="Results">
+        <div id="results" class="results-grid"></div>
+        <p id="empty-state" class="empty-state">
+          Nothing pulled yet. Try a search above, or run one of the quick pulls.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Images and videos courtesy of <a href="https://pixabay.com/" target="_blank" rel="noopener">Pixabay</a>, released under the Pixabay Content License.</p>
+    </footer>
+
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
